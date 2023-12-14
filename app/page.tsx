@@ -4,6 +4,7 @@ import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 
 export default function Home() {
+  
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
 
@@ -38,4 +39,5 @@ export default function Home() {
       <ReactMarkdown>{response}</ReactMarkdown>
     </main>
   );
+
 }
