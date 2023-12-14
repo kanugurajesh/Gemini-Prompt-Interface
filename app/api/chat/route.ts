@@ -1,4 +1,3 @@
-// import { NextRequest, NextResponse } from "next/server";
 import { NextRequest, NextResponse } from "next/server";
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -15,13 +14,12 @@ export async function POST(req: NextRequest) {
   const model = genAI.getGenerativeModel({ model: "gemini-pro", generationConfig: { maxOutputTokens: 100 }});
 
   const result = await model.generateContent(userPrompt);
+
   const response = await result.response;
+  
   const text = response.text();
 
-  console.log(text);
-
   return NextResponse.json({
-    userPrompt,
     text
   });
 
