@@ -6,7 +6,9 @@ import { Input } from "@/components/ui/input"
 import { MessageCircleCode } from "lucide-react";
 import { Send } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Toggle } from "@/components/ui/toggle"
 import { cn } from "@/lib/utils"
+import toast, { Toaster } from "react-hot-toast";
 import styles from '../styles/styles.module.css'
 
 export default function Home() {
@@ -16,7 +18,22 @@ export default function Home() {
   const [response, setResponse] = useState("");
   const [output, setOutput] = useState("");
 
+  const onKeyDown = (e:any) => {
+    // Check if the Ctrl key is pressed along with the Enter key
+    if (e.ctrlKey && e.key === "Enter") {
+      // Prevent the default behavior of the Enter key (e.g., new line in textarea)
+      e.preventDefault();
+      // Trigger the onSubmit function
+      onSubmit();
+    }
+  };
+
   const onSubmit = async () => {
+
+    if (prompt === "") {
+      toast.error("Prompt cannot be empty!");
+      return;
+    }
 
     // clear the output
     setOutput("");
@@ -36,6 +53,7 @@ export default function Home() {
     const data = await response.json();
     // set the response in the state
     setResponse(data.text);
+
   };
 
   useEffect(() => {
@@ -52,6 +70,7 @@ export default function Home() {
 
   return (
     <main className={`flex flex-col justify-center items-center h-screen gap-4`}>
+      <Toaster />
       <div className="flex gap-2 items-center mb-5">
         <MessageCircleCode size="64" />
         <span className="text-3xl font-bold">Chaty</span>
@@ -60,14 +79,17 @@ export default function Home() {
         <Input
           type="text"
           placeholder="prompt"
-          className={cn("w-[800px] h-[45px] rounded-lg p-2")}
+          className={cn("w-[510px] h-[50px] rounded-lg p-2")}
           onChange={(e) => {
             setPrompt(e.target.value);
           }}
+          onKeyDown={(e) => onKeyDown(e)}
         />
-        <button onClick={() => onSubmit()} className="absolute top-3 right-3" >
-          <Send />
-        </button>
+        <Toggle aria-label="Toggle italic" className="absolute top-1 right-1 flex justify-center items-center" >
+          <button onClick={() => onSubmit()}>
+            <Send />
+          </button>
+        </Toggle>
       </div>
       <Card className={cn("w-4/6 p-5 whitespace-normal")}>
         <div className={`${styles.textwrapper}`}>

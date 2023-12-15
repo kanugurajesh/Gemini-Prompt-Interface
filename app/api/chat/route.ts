@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     });
   } catch (error) {
     return NextResponse.json({
-      text: "Error"
+      text: "Unable to process the prompt. Please try again."
     });
   }
 }
