@@ -10,6 +10,7 @@ import styles from '../styles/styles.module.css'
 
 export default function Home() {
   
+  // state for the prompt, response and output
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
   const [output, setOutput] = useState("");
