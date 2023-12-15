@@ -47,7 +47,7 @@ export default function Home() {
         setOutput((prev) => prev + response[i]);
       }, i * 5);
     }
-
+    
   }, [response]);
 
   return (
