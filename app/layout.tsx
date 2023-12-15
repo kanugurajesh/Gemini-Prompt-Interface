@@ -21,11 +21,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider
           attribute='class'
-          defaultTheme='system'
+          defaultTheme='dark'
           enableSystem
           disableTransitionOnChange
         >
-          <div className="float-right">
+          <div className="float-right p-5">
             <ModeToggle />
           </div>
           {children}

@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Send } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils"
+import styles from '../styles/styles.module.css'
 
 export default function Home() {
   
@@ -48,12 +49,12 @@ export default function Home() {
   }, [response]);
 
   return (
-    <main className="flex flex-col justify-center items-center h-screen gap-4">
+    <main className={`flex flex-col justify-center items-center h-screen gap-4`}>
       <div className="relative">
         <Input
           type="text"
           placeholder="prompt"
-          className={cn("w-[400px] h-[45px]")}
+          className={cn("w-[800px] h-[45px] rounded-lg p-2")}
           onChange={(e) => {
             setPrompt(e.target.value);
           }}
@@ -62,9 +63,9 @@ export default function Home() {
           <Send />
         </button>
       </div>
-      <Card className={cn("w-3/6 p-5 whitespace-normal")}>
-        <div style={{ whiteSpace: "wrap" }}>
-          <Markdown className={cn("w-full h-full")}>{`${output}`}</Markdown>
+      <Card className={cn("w-4/6 p-5 whitespace-normal")}>
+        <div className={`${styles.textwrapper}`}>
+          <Markdown className={cn("w-full h-full ")}>{`${output}`}</Markdown>
         </div>
       </Card>
     </main>
