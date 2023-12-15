@@ -18,14 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} relative py-10 overflow-y-scroll`}>
         <ThemeProvider
           attribute='class'
           defaultTheme='dark'
           enableSystem
           disableTransitionOnChange
         >
-          <div className="float-right p-5">
+          <div className="absolute top-5 right-5">
             <ModeToggle />
           </div>
           {children}
