@@ -16,3 +16,5 @@ This app provides a clean and simple interface to interact with gemini pro which
 4. cp .env.example .env.local
 5. get the gemini api key and paste it in .env.local and start experiencing the app
 ```
+# Screenshots
+<img src="https://github.com/kanugurajesh/llm-app/assets/120458029/0ecad117-14b2-49ec-961b-d4952c61559a">
