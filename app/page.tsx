@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
+import { Input } from "@/components/ui/input"
+import { Send } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { cn } from "@/lib/utils"
 
 export default function Home() {
   
@@ -27,17 +31,24 @@ export default function Home() {
   };
 
   return (
-    <main>
-      <input
-        type="text"
-        placeholder="prompt"
-        onChange={(e) => {
-          setPrompt(e.target.value);
-        }}
-      />
-      <button onClick={() => onSubmit()}>Submit</button>
-      <ReactMarkdown>{response}</ReactMarkdown>
+    <main className="flex flex-col justify-center items-center h-screen gap-4">
+      <div className="relative">
+        <Input
+          type="text"
+          placeholder="prompt"
+          className={cn("w-[380px] h-[45px]")}
+          onChange={(e) => {
+            setPrompt(e.target.value);
+          }}
+        />
+        <button onClick={() => onSubmit()} className="absolute top-3 right-3" >
+          <Send />
+        </button>
+      </div>
+      <Card className={cn("w-[800px] h-[380px] p-5")}>
+        <ReactMarkdown>{response}</ReactMarkdown>
+      </Card>
     </main>
   );
-
+      
 }
