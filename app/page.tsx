@@ -16,7 +16,7 @@ export default function Home() {
   // state for the prompt, response and output
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
-  const [output, setOutput] = useState("");
+  const [output, setOutput] = useState("The response will appear here...");
 
   const onKeyDown = (e:any) => {
     // Check if the Ctrl key is pressed along with the Enter key
@@ -36,7 +36,7 @@ export default function Home() {
     }
 
     // clear the output
-    setOutput("");
+    setOutput("The response will appear here...");
 
     // create a post request to the /api/chat endpoint
     const response = await fetch("api/chat", {
@@ -79,19 +79,17 @@ export default function Home() {
         <Input
           type="text"
           placeholder="prompt"
-          className={cn("w-[510px] h-[50px] rounded-lg p-2")}
+          className={cn("min-w-[320px] w-[380px] h-[50px]")}
           onChange={(e) => {
             setPrompt(e.target.value);
           }}
           onKeyDown={(e) => onKeyDown(e)}
         />
-        <Toggle aria-label="Toggle italic" className="absolute top-1 right-1 flex justify-center items-center" >
-          <button onClick={() => onSubmit()}>
-            <Send />
-          </button>
-        </Toggle>
+        <button onClick={() => onSubmit()} className="absolute top-3 right-3 hover:scale-110 transition ease-in-out">
+          <Send />
+        </button>
       </div>
-      <Card className={cn("w-4/6 p-5 whitespace-normal")}>
+      <Card className={cn("w-4/6 p-5 whitespace-normal min-w-[320px] w-[380px]")}>
         <div className={`${styles.textwrapper}`}>
           <Markdown className={cn("w-full h-full ")}>{`${output}`}</Markdown>
         </div>
