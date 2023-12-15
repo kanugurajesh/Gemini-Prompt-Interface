@@ -18,3 +18,6 @@ This app provides a clean and simple interface to interact with gemini pro which
 ```
 # Screenshots
 <img src="https://github.com/kanugurajesh/llm-app/assets/120458029/0ecad117-14b2-49ec-961b-d4952c61559a">
+
+# Demo Gif
+<img src="https://github.com/kanugurajesh/llm-app/assets/120458029/6c273bf9-9fd5-4405-89ff-9ff071418c0d" width=800 height=500 >
