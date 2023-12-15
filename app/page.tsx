@@ -68,7 +68,7 @@ export default function Home() {
   }, [response]);
 
   return (
-    <main className={`flex flex-col justify-center items-center h-screen gap-4 mt-5`}>
+    <main className={`flex flex-col justify-center items-center h-screen gap-4`}>
       <Toaster />
       <div className="flex gap-2 items-center mb-5">
         <MessageCircleCode size="64" />
@@ -88,7 +88,7 @@ export default function Home() {
           <Send />
         </button>
       </div>
-      <Card className={cn("p-5 whitespace-normal min-w-[320px] sm:w-[400px] md:min-w-[500px] max-h-[400px] overflow-y-scroll")}>
+      <Card className={cn("p-5 whitespace-normal min-w-[320px] sm:w-[500px] md:min-w-[600px] max-h-[400px] lg:min-w-[700px] overflow-y-scroll")}>
         <div className={`${styles.textwrapper}`}>
           <Markdown className={cn("w-full h-full ")}>{`${output}`}</Markdown>
         </div>

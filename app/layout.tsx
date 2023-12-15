@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} relative py-10 overflow-y-scroll`}>
+      <body className={`${inter.className} relative py-10`}>
         <ThemeProvider
           attribute='class'
           defaultTheme='dark'
