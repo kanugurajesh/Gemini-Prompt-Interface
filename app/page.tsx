@@ -92,6 +92,7 @@ export default function Home() {
             <Send />
           </button>
         </div>
+        <input type="file" className="hidden" />
         <Button variant="outline" className={cn("w-[40px] p-1")}>
           <Upload className={cn("w-[20px]")}/>
         </Button>
