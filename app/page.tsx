@@ -58,11 +58,13 @@ export default function Home() {
   useEffect(() => {
     // update the response character by character in the output
     if (response.length === 0) return;
+
+    setOutput("");
     
     for (let i = 0; i < response.length; i++) {
       setTimeout(() => {
         setOutput((prev) => prev + response[i]);
-      }, i * 5);
+      }, i * 10);
     }
     
   }, [response]);
