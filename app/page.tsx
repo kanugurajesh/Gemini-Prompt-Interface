@@ -28,6 +28,54 @@ export default function Home() {
     }
   };
 
+  const onFileChange = (e:any) => {
+    // Get the file
+    const file = e.target.files[0];
+    // Check if the file is null
+    if (!file) {
+      toast.error("No file selected!");
+      return;
+    }
+    // Check if the file type is supported
+    if (!file.type.includes("text")) {
+      toast.error("File type not supported!");
+      return;
+    }
+    // Read the file
+    const reader = new FileReader();
+    reader.readAsText(file, "UTF-8");
+    // On reader load
+    reader.onload = (readerEvent) => {
+      // Set the prompt to the file content
+      // @ts-ignore
+      setPrompt(readerEvent.target?.result || "done");
+    };
+  }
+
+  const copyToClipboard = () => {
+    // Copy the output to the clipboard
+    navigator.clipboard.writeText(output);
+    toast.success("Copied to clipboard!");
+  }
+
+  const downloadFile = () => {
+    // Create a new blob
+    const blob = new Blob([output], { type: "text/plain" });
+    // Create a new URL
+    const url = window.URL.createObjectURL(blob);
+    // Create a new anchor tag
+    const anchor = document.createElement("a");
+    // Set the href and download attributes for the anchor tag
+    anchor.href = url;
+    anchor.download = "chat.txt";
+    // Click the anchor tag programmatically
+    anchor.click();
+    // Remove the anchor tag from the body
+    anchor.remove();
+    // Revoke the URL
+    window.URL.revokeObjectURL(url);
+  }
+
   const onSubmit = async () => {
 
     if (prompt === "") {
@@ -82,6 +130,7 @@ export default function Home() {
           <Input
             type="text"
             placeholder="prompt"
+            value={prompt}
             className={cn("min-w-[320px] sm:min-w-[400px] md:min-w-[500px] h-[50px] pr-12")}
             onChange={(e) => {
               setPrompt(e.target.value);
@@ -92,22 +141,25 @@ export default function Home() {
             <Send />
           </button>
         </div>
-        <input type="file" className="hidden" />
-        <Button variant="outline" className={cn("w-[40px] p-1")}>
+        <Input type="file" onChange={(e) => onFileChange(e)} className="hidden" />
+        <Button variant="outline" className={cn("w-[40px] p-1")} onClick={() => {
+          const fileInput = document.querySelector("input[type=file]") as HTMLInputElement;
+          fileInput.click();
+        }}>
           <Upload className={cn("w-[20px]")}/>
         </Button>
       </div>
       <div className="flex gap-3 items-center">
-        <Card className={cn("p-5 whitespace-normal min-w-[320px] sm:w-[500px] md:min-w-[600px] max-h-[400px] lg:min-w-[700px] overflow-y-scroll")}>
+        <Card className={cn("p-5 whitespace-normal min-w-[320px] sm:w-[500px] md:min-w-[600px] min-h-[150px] max-h-[400px] lg:min-w-[700px] overflow-y-scroll")}>
           <div className={`${styles.textwrapper}`}>
             <Markdown className={cn("w-full h-full ")}>{`${output}`}</Markdown>
           </div>
         </Card>
         <div className="flex flex-col gap-5">
-          <Button variant="outline" className={cn("w-[40px] p-1")}>
+          <Button variant="outline" className={cn("w-[40px] p-1")} onClick={()=>copyToClipboard()}>
             <Copy className={cn("w-[20px]")} />
           </Button>
-          <Button variant="outline" className={cn("w-[40px] p-1")}>
+          <Button variant="outline" className={cn("w-[40px] p-1")} onClick={()=>downloadFile()}>
             <Download className={cn("w-[20px]")} />
           </Button>
         </div>
