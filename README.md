@@ -24,7 +24,7 @@ This app provides a clean and simple interface to interact with gemini pro which
 
 ## Contribution Guidelines
 
-We welcome contributions to enhance and improve the Movie Recommendation System. If you have ideas or improvements, feel free to submit a pull request following our contribution guidelines.
+We welcome contributions to enhance and improve the llm app. If you have ideas or improvements, feel free to submit a pull request following our contribution guidelines.
 
 ## Feedback and Issues
 
