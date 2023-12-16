@@ -52,6 +52,30 @@ export default function Home() {
     };
   }
 
+  const copyToClipboard = () => {
+    // Copy the output to the clipboard
+    navigator.clipboard.writeText(output);
+    toast.success("Copied to clipboard!");
+  }
+
+  const downloadFile = () => {
+    // Create a new blob
+    const blob = new Blob([output], { type: "text/plain" });
+    // Create a new URL
+    const url = window.URL.createObjectURL(blob);
+    // Create a new anchor tag
+    const anchor = document.createElement("a");
+    // Set the href and download attributes for the anchor tag
+    anchor.href = url;
+    anchor.download = "chat.txt";
+    // Click the anchor tag programmatically
+    anchor.click();
+    // Remove the anchor tag from the body
+    anchor.remove();
+    // Revoke the URL
+    window.URL.revokeObjectURL(url);
+  }
+
   const onSubmit = async () => {
 
     if (prompt === "") {
@@ -132,10 +156,10 @@ export default function Home() {
           </div>
         </Card>
         <div className="flex flex-col gap-5">
-          <Button variant="outline" className={cn("w-[40px] p-1")}>
+          <Button variant="outline" className={cn("w-[40px] p-1")} onClick={()=>copyToClipboard()}>
             <Copy className={cn("w-[20px]")} />
           </Button>
-          <Button variant="outline" className={cn("w-[40px] p-1")}>
+          <Button variant="outline" className={cn("w-[40px] p-1")} onClick={()=>downloadFile()}>
             <Download className={cn("w-[20px]")} />
           </Button>
         </div>
