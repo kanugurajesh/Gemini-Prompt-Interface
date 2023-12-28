@@ -10,11 +10,12 @@ This app provides a clean and simple interface to interact with gemini pro which
 # Project Setup
 
 ```bash
-1. git clone https://github.com/kanugurajesh/llm-app/
-2. cd llm-app
-3. npm install
-4. cp .env.example .env.local
-5. get the gemini api key and paste it in .env.local and start experiencing the app
+1. Fork the repo
+2. git clone https://github.com/[your username]/llm-app/
+3. cd llm-app
+4. npm install
+5. cp .env.example .env.local
+6. get the gemini api key and paste it in .env.local and start experiencing the app
 ```
 # Screenshots
 <img src="https://github.com/kanugurajesh/llm-app/assets/120458029/0ecad117-14b2-49ec-961b-d4952c61559a">
