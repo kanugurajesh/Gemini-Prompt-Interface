@@ -24,8 +24,6 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [screenColor, setScreenColor] = useState("white");
 
-  console.log("screenColor", screenColor)
-  
   const onKeyDown = (e: any) => {
     // Check if the Ctrl key is pressed along with the Enter key
     if (e.key === "Enter") {
@@ -82,6 +80,7 @@ export default function Home() {
     anchor.remove();
     // Revoke the URL
     window.URL.revokeObjectURL(url);
+    toast.success("Downloaded the output as a text file!");
   };
 
   const showHoverNotification = (message: string) => {
