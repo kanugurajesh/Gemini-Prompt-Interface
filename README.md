@@ -4,7 +4,7 @@
   <img src="https://github.com/kanugurajesh/llm-app/assets/120458029/74c20db8-add9-42a7-80df-05ba6795b19b" alt="" width=70 height=70>
 </div>
 
-# llm app
+# Gemini Prompt Interface
 This app provides a clean and simple interface to interact with gemini pro which is the advanced language model.
 
 # Project Setup
