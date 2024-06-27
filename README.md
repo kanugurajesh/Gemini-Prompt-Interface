@@ -47,6 +47,7 @@ If you encounter any issues or have feedback, please open an issue on our [GitHu
 - Next.js
 - Gemini Pro Api
 - Tailwindcss
+- Shad/Cdn
 
 ## Authors
 
