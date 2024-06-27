@@ -78,12 +78,12 @@ export default function Home() {
     window.URL.revokeObjectURL(url);
   };
 
-  const showHoverNotification = (message:string) => {
+  const showHoverNotification = (message: string) => {
     if (showHoverInfo) {
       toast.dismiss();
       toast(message, { duration: 1000 });
     }
-  }
+  };
 
   const onSubmit = async () => {
     if (prompt === "") {
@@ -126,14 +126,21 @@ export default function Home() {
 
   return (
     <main className={`flex flex-col items-center h-screen gap-4`}>
-      <HoverInfo showHoverInfo={showHoverInfo} setShowHoverInfo={setShowHoverInfo}  />
-      <div className="absolute top-5 right-5" onMouseEnter={() => showHoverNotification("Click to change screen between black and white")}>
+      <HoverInfo
+        showHoverInfo={showHoverInfo}
+        setShowHoverInfo={setShowHoverInfo}
+      />
+      <div
+        className="absolute top-5 right-5"
+        onMouseEnter={() =>
+          showHoverNotification(
+            "Click to change screen between black and white"
+          )
+        }
+      >
         <ModeToggle />
       </div>
-      <div>
-
-      </div>
-      <div className="flex gap-2 items-center mb-5">
+      <div className="flex gap-2 items-center my-8">
         <MessageCircleCode size="64" />
         <span className="text-3xl font-bold">Chaty</span>
       </div>
@@ -154,7 +161,9 @@ export default function Home() {
           <button
             onClick={() => onSubmit()}
             className="absolute top-3 right-3 hover:scale-110 transition ease-in-out"
-            onMouseEnter={() => showHoverNotification("Click to chat with the AI.")}
+            onMouseEnter={() =>
+              showHoverNotification("Click to chat with the AI.")
+            }
           >
             <Send />
           </button>
@@ -173,7 +182,11 @@ export default function Home() {
             ) as HTMLInputElement;
             fileInput.click();
           }}
-          onMouseEnter={() => showHoverNotification("Upload a text file with the prompt to chat with the AI.")}
+          onMouseEnter={() =>
+            showHoverNotification(
+              "Upload a text file with the prompt to chat with the AI."
+            )
+          }
         >
           <Upload className={cn("w-[20px]")} />
         </Button>
@@ -193,7 +206,9 @@ export default function Home() {
             variant="outline"
             className={cn("w-[40px] p-1")}
             onClick={() => copyToClipboard()}
-            onMouseEnter={() => showHoverNotification("Copy the output to the clipboard.")}
+            onMouseEnter={() =>
+              showHoverNotification("Copy the output to the clipboard.")
+            }
           >
             <Copy className={cn("w-[20px]")} />
           </Button>
@@ -201,7 +216,9 @@ export default function Home() {
             variant="outline"
             className={cn("w-[40px] p-1")}
             onClick={() => downloadFile()}
-            onMouseEnter={() => showHoverNotification("Download the output as a text file.")}
+            onMouseEnter={() =>
+              showHoverNotification("Download the output as a text file.")
+            }
           >
             <Download className={cn("w-[20px]")} />
           </Button>
