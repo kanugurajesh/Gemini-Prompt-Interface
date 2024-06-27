@@ -26,7 +26,8 @@ This app provides a clean and simple interface to interact with gemini pro which
 <img src="https://github.com/kanugurajesh/Gemini-Prompt-Interface/assets/77529419/a30b501d-84e8-4ea0-8582-659962ef4a13" />
 
 # Demo Gif
-<img src="https://github.com/kanugurajesh/llm-app/assets/120458029/6c273bf9-9fd5-4405-89ff-9ff071418c0d" width=1050 height=500 >
+
+[![Gemini Prompt Interface](https://img.youtube.com/vi/PsE5QfBSvQ4/0.jpg)](https://www.youtube.com/watch?v=PsE5QfBSvQ4)
 
 ## Contribution Guidelines
 
