@@ -140,7 +140,7 @@ export default function Home() {
       >
         <ModeToggle />
       </div>
-      <div className="flex gap-2 items-center my-8">
+      <div className="flex gap-2 items-center mb-6 mt-12">
         <MessageCircleCode size="64" />
         <span className="text-3xl font-bold">Chaty</span>
       </div>
