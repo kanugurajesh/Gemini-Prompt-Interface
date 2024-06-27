@@ -12,14 +12,20 @@ import { cn } from "@/lib/utils";
 import toast from "react-hot-toast";
 import styles from "../styles/styles.module.css";
 import { HoverInfo } from "@/components/HoverInfo";
+import { Audio } from "react-loader-spinner";
 
 export default function Home() {
+
   // state for the prompt, response and output
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
   const [output, setOutput] = useState("The response will appear here...");
   const [showHoverInfo, setShowHoverInfo] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [screenColor, setScreenColor] = useState("white");
 
+  console.log("screenColor", screenColor)
+  
   const onKeyDown = (e: any) => {
     // Check if the Ctrl key is pressed along with the Enter key
     if (e.key === "Enter") {
@@ -94,6 +100,8 @@ export default function Home() {
     // clear the output
     setOutput("The response will appear here...");
 
+    setLoading(true);
+    toast.loading("Chatting with the AI...");
     // create a post request to the /api/chat endpoint
     const response = await fetch("api/chat", {
       method: "POST",
@@ -107,6 +115,15 @@ export default function Home() {
 
     // get the response from the server
     const data = await response.json();
+
+    setLoading(false);
+    toast.dismiss();
+
+    if (data.text === "Unable to process the prompt. Please try again.") {
+      toast.error("Unable to process the prompt. Please try again.");
+      return;
+    }
+
     // set the response in the state
     setResponse(data.text);
   };
@@ -138,7 +155,7 @@ export default function Home() {
           )
         }
       >
-        <ModeToggle />
+        <ModeToggle setScreenColor={setScreenColor} />
       </div>
       <div className="flex gap-2 items-center mb-6 mt-12">
         <MessageCircleCode size="64" />
@@ -165,7 +182,11 @@ export default function Home() {
               showHoverNotification("Click to chat with the AI.")
             }
           >
-            <Send />
+            {loading ? (
+              <Audio color={screenColor} height={25} width={25} />
+            ) : (
+              <Send size="25" />
+            )}
           </button>
         </div>
         <Input
