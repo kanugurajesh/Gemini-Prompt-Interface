@@ -7,6 +7,14 @@
 # Gemini Prompt Interface
 This app provides a clean and simple interface to interact with gemini pro which is the advanced language model.
 
+# Screenshots
+
+<img src="https://github.com/kanugurajesh/Gemini-Prompt-Interface/assets/77529419/34a160dd-0238-48ed-8a95-c6eec6c664eb"/>
+
+<img src="https://github.com/kanugurajesh/Gemini-Prompt-Interface/assets/77529419/6a6d59b9-a786-428c-94b3-36332c06de36"/>
+
+<img src="https://github.com/kanugurajesh/Gemini-Prompt-Interface/assets/77529419/a30b501d-84e8-4ea0-8582-659962ef4a13" />
+
 # Project Setup
 
 ```bash
@@ -17,17 +25,6 @@ This app provides a clean and simple interface to interact with gemini pro which
 5. cp .env.example .env.local
 6. get the gemini api key and paste it in .env.local and start experiencing the app
 ```
-# Screenshots
-
-<img src="https://github.com/kanugurajesh/Gemini-Prompt-Interface/assets/77529419/34a160dd-0238-48ed-8a95-c6eec6c664eb"/>
-
-<img src="https://github.com/kanugurajesh/Gemini-Prompt-Interface/assets/77529419/6a6d59b9-a786-428c-94b3-36332c06de36"/>
-
-<img src="https://github.com/kanugurajesh/Gemini-Prompt-Interface/assets/77529419/a30b501d-84e8-4ea0-8582-659962ef4a13" />
-
-# Demo Gif
-
-[![Gemini Prompt Interface](https://img.youtube.com/vi/PsE5QfBSvQ4/0.jpg)](https://www.youtube.com/watch?v=PsE5QfBSvQ4)
 
 ## Contribution Guidelines
 
