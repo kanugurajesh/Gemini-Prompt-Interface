@@ -18,7 +18,7 @@ This app provides a clean and simple interface to interact with gemini pro which
 6. get the gemini api key and paste it in .env.local and start experiencing the app
 ```
 # Screenshots
-<img src="https://github.com/kanugurajesh/llm-app/assets/120458029/0ecad117-14b2-49ec-961b-d4952c61559a">
+<img src="https://github.com/kanugurajesh/llm-app/assets/77529419/78107908-23dc-448e-8e25-ae362322f221">
 
 # Demo Gif
 <img src="https://github.com/kanugurajesh/llm-app/assets/120458029/6c273bf9-9fd5-4405-89ff-9ff071418c0d" width=1050 height=500 >
