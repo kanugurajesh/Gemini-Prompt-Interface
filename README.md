@@ -45,7 +45,6 @@ If you encounter any issues or have feedback, please open an issue on our [GitHu
 ## Authors
 
 - [@kanugurajesh](https://www.github.com/kanugurajesh)
-- [@rajesh604](https://www.github.com/rajesh604)
 
 ## Contributing
 
